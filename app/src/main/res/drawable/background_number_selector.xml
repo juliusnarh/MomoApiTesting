@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?><!--
+  ~ Copyright (c) Universal Consulting Links Ghana 2019.
+  -->
+
+<!--  res/drawable/rounded_edittext.xml -->
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item android:drawable="@drawable/ic_ball_active" android:state_activated="true" />
+    <item android:drawable="@drawable/ic_ball_default"  />
+</selector>

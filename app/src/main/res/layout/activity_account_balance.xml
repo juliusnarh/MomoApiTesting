@@ -1,0 +1,243 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+
+    <data>
+
+        <variable
+            name="dAmount"
+            type="String" />
+
+        <variable
+            name="cAmount"
+            type="String" />
+
+        <import type="android.view.View" />
+
+        <variable
+            name="loading"
+            type="Boolean" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:animateLayoutChanges="true"
+        android:background="@drawable/background_gradient"
+        tools:context=".activity.AccountBalance">
+
+        <ImageView
+            android:layout_width="120dp"
+            android:layout_height="130dp"
+            android:layout_alignParentEnd="true"
+            android:layout_marginTop="5dp"
+            android:layout_marginEnd="10dp"
+            android:contentDescription="@string/cd_falling_coins"
+            android:rotation="33"
+            android:src="@drawable/coins"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageView
+            android:layout_width="140dp"
+            android:layout_height="150dp"
+            android:layout_marginTop="25dp"
+            android:contentDescription="@string/cd_falling_coins"
+            android:rotation="3"
+            android:src="@drawable/coins"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+        <ImageView
+            android:layout_width="120dp"
+            android:layout_height="130dp"
+            android:layout_marginTop="25dp"
+            android:contentDescription="@string/cd_falling_coins"
+            android:rotation="3"
+            android:src="@drawable/coins"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:alpha="0.4"
+            android:background="@color/black_overlay" />
+
+        <TextView
+            android:id="@+id/payment_header"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="15dp"
+            android:layout_marginTop="100dp"
+            android:layout_marginEnd="15dp"
+            android:fontFamily="@font/biorhyme_extrabold"
+            android:text="Check Your\nAccount Balance Here!"
+            android:textColor="@color/white"
+            android:textSize="25sp"
+            android:textStyle="bold"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <androidx.core.widget.NestedScrollView
+            android:id="@+id/scroll"
+            app:layout_constraintTop_toBottomOf="@id/animation_view"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            app:layout_constraintBottom_toTopOf="@id/payment_ripple">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/collections_card"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginTop="30dp"
+                    android:layout_marginEnd="10dp"
+                    android:layout_marginBottom="10dp"
+                    app:cardCornerRadius="5dp"
+                    layout_constraintTop_toTopOf="parent"
+                    app:cardElevation="10dp"
+                    app:cardUseCompatPadding="true"
+                    >
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:padding="10dp">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/sen_bold"
+                            android:text="@string/collections_balance"
+                            android:textColor="@color/primaryTextColor"
+                            android:textSize="@dimen/ts_large"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/sen_bold"
+                            android:text="(0558330725)"
+                            android:textColor="@color/primaryTextColor"
+                            android:textSize="14sp"
+                            android:textStyle="bold" />
+                        <TextView
+                            android:id="@+id/collections_amount"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="10dp"
+                            android:fontFamily="@font/sen_bold"
+                            android:text="@{@string/amount_alt(cAmount)}"
+                            android:textColor="@color/md_green_700"
+                            android:textSize="@dimen/ts_xx_large"
+                            android:textStyle="bold" />
+                    </LinearLayout>
+                </androidx.cardview.widget.CardView>
+
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/disbursement_card"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginEnd="10dp"
+                    android:layout_marginBottom="10dp"
+                    app:cardCornerRadius="5dp"
+                    app:cardElevation="10dp"
+                    app:cardUseCompatPadding="true"
+                    app:layout_constraintTop_toBottomOf="@id/collections_card">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:padding="10dp">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/sen_bold"
+                            android:text="@string/disbursement_balance"
+                            android:textColor="@color/primaryTextColor"
+                            android:textSize="@dimen/ts_large"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/sen_bold"
+                            android:text="(0549792799)"
+                            android:textColor="@color/primaryTextColor"
+                            android:textSize="14sp"
+                            android:textStyle="bold" />
+                        <TextView
+                            android:id="@+id/disbursement_amount"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="10dp"
+                            android:fontFamily="@font/sen_bold"
+                            android:text="@{@string/amount_alt(dAmount)}"
+                            android:textColor="@color/md_green_700"
+                            android:textSize="@dimen/ts_xx_large"
+                            android:textStyle="bold" />
+                    </LinearLayout>
+                </androidx.cardview.widget.CardView>
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </androidx.core.widget.NestedScrollView>
+
+        <com.airbnb.lottie.LottieAnimationView
+            android:id="@+id/animation_view"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:layout_marginTop="10dp"
+            android:visibility="@{loading ? View.VISIBLE : View.GONE}"
+            app:layout_constraintEnd_toEndOf="@id/payment_header"
+            app:layout_constraintStart_toStartOf="@id/payment_header"
+            app:layout_constraintTop_toBottomOf="@id/payment_header"
+            app:lottie_autoPlay="true"
+            app:lottie_scale="2.0"
+            app:lottie_fileName="loading.json"
+            app:lottie_loop="true" />
+
+        <com.balysv.materialripple.MaterialRippleLayout
+            android:id="@+id/payment_ripple"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="30dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="30dp"
+            android:layout_marginBottom="20dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:mrl_rippleAlpha="0.1"
+            app:mrl_rippleColor="#000000"
+            app:mrl_rippleDimension="10dp"
+            app:mrl_rippleDuration="200"
+            app:mrl_rippleHover="true"
+            app:mrl_rippleOverlay="true"
+            app:mrl_rippleRoundedCorners="10dp">
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/payment_button"
+                style="@style/Widget.AppCompat.Button.Borderless"
+                android:layout_width="match_parent"
+                android:layout_height="54dp"
+                android:layout_gravity="center_horizontal"
+                android:background="@drawable/background_selectable_payment"
+                android:fontFamily="@font/varelaround"
+                android:text="@string/label_check_balance"
+                android:textAllCaps="false"
+                android:textColor="@color/white"
+                android:textSize="@dimen/ts_big"
+                android:textStyle="bold" />
+        </com.balysv.materialripple.MaterialRippleLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

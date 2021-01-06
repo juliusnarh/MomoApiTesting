@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/numbersFragment">
+
+    <fragment
+        android:id="@+id/numbersFragment"
+        android:name="com.uclgroupgh.momoapitesting.fragment.NumbersFragment"
+        android:label="fragment_numbers"
+        tools:layout="@layout/fragment_numbers">
+        <argument
+            android:name="selectedNumbers"
+            android:defaultValue="0"
+            app:argType="string" />
+        <action
+            android:id="@+id/action_numbersFragment_to_paymentFragment"
+            app:destination="@id/paymentFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right" />
+    </fragment>
+    <fragment
+        android:id="@+id/paymentFragment"
+        android:name="com.uclgroupgh.momoapitesting.fragment.PaymentFragment"
+        android:label="fragment_payment_fragment"
+        tools:layout="@layout/fragment_payment">
+        <argument
+            android:name="selectedNumbers"
+            android:defaultValue="0"
+            app:argType="string" />
+        <argument
+            android:name="gamePlayed"
+            android:defaultValue=""
+            app:argType="string" />
+
+        <argument
+            android:name="paymentType"
+            android:defaultValue="momo"
+            app:argType="string" />
+        <action
+            android:id="@+id/action_paymentFragment_to_paymentTypeFragment"
+            app:destination="@id/paymentVerificationFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right"  />
+    </fragment>
+
+    <fragment
+        android:id="@+id/paymentVerificationFragment"
+        android:name="com.uclgroupgh.momoapitesting.fragment.PaymentVerificationFragment"
+        android:label="fragment_payment_type"
+        tools:layout="@layout/fragment_payment_verification">
+        <argument
+            android:name="referenceId"
+            android:defaultValue="null"
+            app:argType="string"/>
+        <argument
+            android:name="accessToken"
+            android:defaultValue="null"
+            app:argType="string"/>
+    </fragment>
+</navigation>

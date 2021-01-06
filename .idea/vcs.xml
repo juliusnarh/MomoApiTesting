@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="VcsDirectoryMappings">
+    <mapping directory="$PROJECT_DIR$" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/AMS" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/ChurchMan" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/FormKotlin" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/FormsV2/Forms" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/IVCAMS-Kotlin" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/Onboarding" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/OnboardingDriver" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/RoadSafetyHospital" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/UCLRevenueAdmin" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/UCLRevenueTracker" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/amsinputretailer" vcs="Git" />
+  </component>
+</project>

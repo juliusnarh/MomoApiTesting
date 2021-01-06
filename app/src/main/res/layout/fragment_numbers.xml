@@ -1,0 +1,245 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/yellow_A700"
+    tools:context=".fragment.NumbersFragment">
+
+    <ImageView
+        android:layout_width="149dp"
+        android:layout_height="165dp"
+        android:layout_gravity="end"
+        android:rotation="33"
+        android:src="@drawable/falling_balls2" />
+    <!-- TODO: Update blank fragment layout -->
+    <com.balysv.materialripple.MaterialRippleLayout
+        android:id="@+id/back_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginBottom="20dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:mrl_rippleAlpha="0.1"
+        app:mrl_rippleColor="#000000"
+        app:mrl_rippleDimension="10dp"
+        app:mrl_rippleDuration="200"
+        app:mrl_rippleHover="true"
+        app:mrl_rippleOverlay="true"
+        app:mrl_rippleRoundedCorners="30dp">
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:contentDescription="Go back to previous screen"
+            android:src="@drawable/ic_arrow"/>
+    </com.balysv.materialripple.MaterialRippleLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="50dp"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20sp"
+            android:layout_marginEnd="20sp"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/varelaround"
+                android:text="Choose"
+                android:textColor="@color/white"
+                android:textSize="35sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/number_selection_limit"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
+                android:fontFamily="@font/varelaround"
+                android:text="5 numbers only"
+                android:textColor="@color/white"
+                android:textSize="30sp" />
+
+            <TableLayout
+                android:layout_width="match_parent"
+                android:layout_height="85dp"
+                android:stretchColumns="*">
+
+                <TableRow
+                    android:gravity="center_horizontal">
+
+                    <LinearLayout
+                        android:id="@+id/number_1_layout"
+                        android:layout_width="40dp"
+                        android:layout_height="@dimen/number_height"
+                        android:layout_marginEnd="12dp"
+                        android:background="@drawable/background_numbers_selected"
+                        android:gravity="center"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/number_1"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/nunito_bold"
+                            android:text="25"
+                            android:textAlignment="center"
+                            android:textColor="@color/textColor"
+                            android:textSize="30sp" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/number_2_layout"
+                        android:layout_width="40dp"
+                        android:layout_height="@dimen/number_height"
+                        android:layout_marginEnd="12dp"
+                        android:background="@drawable/background_numbers_empty"
+                        android:gravity="center"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/number_2"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/nunito_bold"
+                            android:textAlignment="center"
+                            android:textColor="@color/orange_A700"
+                            android:textSize="30sp" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/number_3_layout"
+                        android:layout_width="40dp"
+                        android:layout_height="@dimen/number_height"
+                        android:layout_marginEnd="12dp"
+                        android:background="@drawable/background_numbers_empty"
+                        android:gravity="center"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/number_3"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/nunito_bold"
+                            android:textAlignment="center"
+                            android:textColor="@color/orange_A700"
+                            android:textSize="30sp" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/number_4_layout"
+                        android:layout_width="40dp"
+                        android:layout_height="@dimen/number_height"
+                        android:layout_marginEnd="12dp"
+                        android:background="@drawable/background_numbers_empty"
+                        android:gravity="center"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/number_4"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/nunito_bold"
+                            android:textAlignment="center"
+                            android:textColor="@color/orange_A700"
+                            android:textSize="30sp" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/number_5_layout"
+                        android:layout_width="40dp"
+                        android:layout_height="@dimen/number_height"
+                        android:layout_marginEnd="12dp"
+                        android:background="@drawable/background_numbers_empty"
+                        android:gravity="center"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/number_5"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/nunito_bold"
+                            android:textAlignment="center"
+                            android:textColor="@color/orange_A700"
+                            android:textSize="30sp" />
+
+                    </LinearLayout>
+
+                </TableRow>
+            </TableLayout>
+
+
+        </LinearLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="15dp"
+            android:background="@drawable/background_available_numbers">
+
+            <androidx.core.widget.NestedScrollView
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_margin="20dp"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toTopOf="@+id/payment_ripple">
+
+               <androidx.recyclerview.widget.RecyclerView
+                   android:id="@+id/recycler_view"
+                   android:layout_width="match_parent"
+                   android:layout_height="wrap_content"
+                   app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
+                   app:spanCount="5"
+                   tools:itemCount="50"
+                   tools:listitem="@layout/item_numbers"/>
+
+            </androidx.core.widget.NestedScrollView>
+
+            <com.balysv.materialripple.MaterialRippleLayout
+                android:id="@+id/payment_ripple"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="30dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="30dp"
+                android:layout_marginBottom="20dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:mrl_rippleAlpha="0.1"
+                app:mrl_rippleColor="#000000"
+                app:mrl_rippleDimension="10dp"
+                app:mrl_rippleDuration="200"
+                app:mrl_rippleHover="true"
+                app:mrl_rippleOverlay="true"
+                app:mrl_rippleRoundedCorners="10dp">
+
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/payment_button"
+                    style="@style/Widget.AppCompat.Button.Borderless"
+                    android:layout_width="match_parent"
+                    android:layout_height="54dp"
+                    android:layout_gravity="center_horizontal"
+                    android:background="@drawable/background_selectable_payment"
+                    android:fontFamily="@font/varelaround"
+                    android:text="Make Payment"
+                    android:textAllCaps="false"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/ts_big"
+                    android:textStyle="bold" />
+            </com.balysv.materialripple.MaterialRippleLayout>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </LinearLayout>
+
+</FrameLayout>
