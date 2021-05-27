@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">MomoApi</string>
+    <string name="app_name">UCL Momo Accounts</string>
     <string name="action_settings">Settings</string>
     <string name="account_number">Account number…</string>
     <string name="label_search">Search</string>
@@ -29,4 +29,5 @@
     <string name="label_check_balance">Check Balance</string>
     <string name="disbursement_balance">Disbursement Balance</string>
     <string name="collections_balance">Collections Balance</string>
+    <string name="test_ipaygh_sdk">Test IPAYGH SDK</string>
 </resources>

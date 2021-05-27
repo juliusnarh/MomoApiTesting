@@ -1,5 +1,6 @@
 package com.uclgroupgh.momoapitesting.activity
 
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
@@ -11,6 +12,7 @@ import com.uclgroupgh.momoapitesting.network.ApiClient
 import com.uclgroupgh.momoapitesting.network.ApiService
 import com.uclgroupgh.momoapitesting.util.AndroidUtils
 import com.uclgroupgh.momoapitesting.util.Constants
+import ipay.gh.com.ipayandroidsdk.models.Payment
 import kotlinx.android.synthetic.main.activity_main.*
 import retrofit2.Call
 import retrofit2.Callback
@@ -29,10 +31,29 @@ class AccountBalance : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = setContentView(this, R.layout.activity_account_balance)
+        val p = Payment()
+        p.merchantKey = "77e40fc2-4eaf-11eb-a9e2-f23c9170642f"
+        p.invoiceId = "UCL-TEST-00000256"
+        p.amount = 1.00
+        val bundle = Bundle()
+        bundle.putSerializable("payment", p)
+        val intent = Intent(applicationContext, Class.forName("ipay.gh.com.ipayandroidsdk.PaymentActivity"))
+        intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_MULTIPLE_TASK)
+        intent.putExtras(bundle)
+
+
         binding.apply {
             loading = this@AccountBalance.loading
-            cAmount = AndroidUtils.getPreferenceData(this@AccountBalance, Constants.C_AMOUNT, "0.00")!!
-            dAmount = AndroidUtils.getPreferenceData(this@AccountBalance, Constants.D_AMOUNT, "0.00")!!
+            cAmount = AndroidUtils.getPreferenceData(
+                this@AccountBalance,
+                Constants.C_AMOUNT,
+                "0.00"
+            )!!
+            dAmount = AndroidUtils.getPreferenceData(
+                this@AccountBalance,
+                Constants.D_AMOUNT,
+                "0.00"
+            )!!
             executePendingBindings()
         }
         setupApiService()
@@ -40,6 +61,9 @@ class AccountBalance : AppCompatActivity() {
 
         binding.paymentButton.setOnClickListener {
             getTokenCollection()
+        }
+        binding.paymentIpay.setOnClickListener {
+            this.applicationContext.startActivity(intent)
         }
     }
 
@@ -82,7 +106,7 @@ class AccountBalance : AppCompatActivity() {
                     )
                     binding.apply {
                         dAmount = result.availableBalance
-                    loading = false
+                        loading = false
                         executePendingBindings()
                     }
                 }

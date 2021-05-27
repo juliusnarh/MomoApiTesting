@@ -24,6 +24,17 @@ interface ApiService {
     @POST("token.php")
     fun generateAPIToken2(@Query("product") product: String): Call<ApiToken>
 
+    @POST("gateway/checkout")
+    fun initiatePayment(
+        @Query("merchant_key") merchantKey: String,
+        @Query("invoice_id") invoiceID: String,
+        @Query("total") total: String,
+        @Query("extra_mobile") customerMobile: String,
+        @Query("extra_email") customerEmail: String,
+        @Query("extra_name") custumerName: String,
+        @Query("description") description: String
+    ): Call<ApiToken>
+
     @POST("requestToPay.php")
     fun requestToPay(
         @Query("subscription_key") subscriptionKey: String,

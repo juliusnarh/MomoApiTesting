@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
 
     <data>
 
@@ -18,9 +20,7 @@
             type="Boolean" />
     </data>
 
-    <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:app="http://schemas.android.com/apk/res-auto"
-        xmlns:tools="http://schemas.android.com/tools"
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:animateLayoutChanges="true"
@@ -72,12 +72,12 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="15dp"
-            android:layout_marginTop="100dp"
+            android:layout_marginTop="50dp"
             android:layout_marginEnd="15dp"
-            android:fontFamily="@font/biorhyme_extrabold"
+            android:fontFamily="@font/bitter_regular"
             android:text="Check Your\nAccount Balance Here!"
             android:textColor="@color/white"
-            android:textSize="25sp"
+            android:textSize="22sp"
             android:textStyle="bold"
             app:layout_constraintTop_toTopOf="parent" />
 
@@ -86,7 +86,8 @@
             app:layout_constraintTop_toBottomOf="@id/animation_view"
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            app:layout_constraintBottom_toTopOf="@id/payment_ripple">
+            android:layout_marginTop="15dp"
+            app:layout_constraintBottom_toTopOf="@id/payment_ipay">
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
@@ -233,6 +234,37 @@
                 android:background="@drawable/background_selectable_payment"
                 android:fontFamily="@font/varelaround"
                 android:text="@string/label_check_balance"
+                android:textAllCaps="false"
+                android:textColor="@color/white"
+                android:textSize="@dimen/ts_big"
+                android:textStyle="bold" />
+        </com.balysv.materialripple.MaterialRippleLayout>
+        <com.balysv.materialripple.MaterialRippleLayout
+            android:id="@+id/payment_ipay"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="30dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="30dp"
+            android:layout_marginBottom="20dp"
+            app:layout_constraintBottom_toTopOf="@id/payment_ripple"
+            app:mrl_rippleAlpha="0.1"
+            app:mrl_rippleColor="#000000"
+            app:mrl_rippleDimension="10dp"
+            app:mrl_rippleDuration="200"
+            app:mrl_rippleHover="true"
+            app:mrl_rippleOverlay="true"
+            app:mrl_rippleRoundedCorners="10dp">
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/payment_button_ipay"
+                style="@style/Widget.AppCompat.Button.Borderless"
+                android:layout_width="match_parent"
+                android:layout_height="54dp"
+                android:layout_gravity="center_horizontal"
+                android:background="@drawable/background_ipay_button_payment"
+                android:fontFamily="@font/varelaround"
+                android:text="@string/test_ipaygh_sdk"
                 android:textAllCaps="false"
                 android:textColor="@color/white"
                 android:textSize="@dimen/ts_big"

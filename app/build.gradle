@@ -48,6 +48,10 @@ dependencies {
     implementation 'com.google.android.material:material:1.1.0'
     implementation 'androidx.legacy:legacy-support-v4:1.0.0'
 
+//    IPAYGH ANDROID SDK
+//    implementation 'com.github.darelabs:ipay-ghana-android-sdk:v0.1'
+    implementation project(':ipayandroidsdk')
+
     //ANIMATION
     implementation 'com.airbnb.android:lottie:3.1.0'
 

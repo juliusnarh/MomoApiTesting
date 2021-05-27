@@ -17,6 +17,7 @@ object Constants {
     const val BASE_URL_2 = "https://proxy.momoapi.mtn.com/"
     const val BASE_URL_SANDBOX = "https://sandbox.momodeveloper.mtn.com/"
     const val BASE_URL = "https://uclgroupgh.com/WuLucky/mobileManager/momo/"
+    const val BASE_URL_IPAY = "https://manage.ipaygh.com/"
     const val ENDPOINT_DISBURSEMENT = "/api/tracking?key=1234"
     const val COLLECTION_SUBSCRIPTION_KEY = "9dfacffb399048958c0ad479a2332a4e"
     const val API_USER = "8d0ecaf3-e9a9-49a6-8af9-7b110c5eb3d3"
