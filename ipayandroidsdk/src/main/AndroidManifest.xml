@@ -1,0 +1,8 @@
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="ipay.gh.com.ipayandroidsdk">
+
+    <application android:name=".application.IPaySDK">
+        <activity android:name=".PaymentActivity" />
+    </application>
+
+</manifest>
