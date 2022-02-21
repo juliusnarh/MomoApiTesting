@@ -11,6 +11,7 @@ import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.navArgs
 import br.com.ilhasoft.support.validation.Validator
 import com.google.gson.Gson
+import com.uclgroupgh.momoapitesting.BuildConfig
 import com.uclgroupgh.momoapitesting.databinding.FragmentPaymentBinding
 import com.uclgroupgh.momoapitesting.models.AccountHolder
 import com.uclgroupgh.momoapitesting.models.ApiToken
@@ -78,7 +79,7 @@ class PaymentFragment : Fragment() {
 
     private fun verifyAccountHolder() {
         val call = apiService.verifyAccountHolder(
-            subscriptionKey = Constants.COLLECTION_SUBSCRIPTION_KEY,
+            subscriptionKey = BuildConfig.COLLECTION_SUB_KEY,
             accHolderId = "233${gameReceipt.playerNumber.substring(1)}",
             accHolderIdType = Constants.MSISDN.toUpperCase(Locale.ENGLISH),
             targetEnvironment = Constants.TARGET_ENVIRONMENT,
@@ -113,9 +114,9 @@ class PaymentFragment : Fragment() {
 
     private fun getAccessToken() {
         val call = apiService.generateAPIToken2(
-            Constants.API_USER,
-            Constants.API_USER_KEY,
-            Constants.COLLECTION_SUBSCRIPTION_KEY
+            BuildConfig.COLLECTION_API_USER,
+            BuildConfig.COLLECTION_API_USER_KEY,
+            BuildConfig.COLLECTION_SUB_KEY
         )
 
         call.enqueue(object : Callback<ApiToken> {
@@ -148,7 +149,7 @@ class PaymentFragment : Fragment() {
         Log.e("REFERENCE2", Gson().toJson(requestToPay))
         Log.e("REFERENCE3", apiToken.access_token)
         val call = apiService.requestToPay(
-            subscriptionKey = Constants.COLLECTION_SUBSCRIPTION_KEY,
+            subscriptionKey = BuildConfig.COLLECTION_SUB_KEY,
             referenceID = gameReceipt.reference,
             targetEnvironment = Constants.TARGET_ENVIRONMENT,
             accessToken = "Bearer ${apiToken.access_token}",

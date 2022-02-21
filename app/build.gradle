@@ -10,6 +10,9 @@ android {
     compileSdkVersion 29
     buildToolsVersion "29.0.2"
     defaultConfig {
+        def Properties properties = new Properties()
+        properties.load(project.rootProject.file("local.properties").newDataInputStream())
+
         applicationId "com.uclgroupgh.momoapitesting"
         minSdkVersion 23
         targetSdkVersion 29
@@ -17,6 +20,13 @@ android {
         versionName "1.0"
         vectorDrawables.useSupportLibrary = true
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+
+        buildConfigField("String", "COLLECTION_SUB_KEY", properties.getProperty("collection.sub.key"))
+        buildConfigField("String", "DISBURSEMENT_SUB_KEY", properties.getProperty("disbursement.sub.key"))
+        buildConfigField("String", "COLLECTION_API_USER", properties.getProperty("collection.api.user"))
+        buildConfigField("String", "COLLECTION_API_USER_KEY", properties.getProperty("collection.api.user.key"))
+        buildConfigField("String", "DISBURSEMENT_API_USER", properties.getProperty("disbursement.api.user"))
+        buildConfigField("String", "DISBURSEMENT_API_USER_KEY", properties.getProperty("disbursement.api.user.key"))
     }
     buildTypes {
         release {

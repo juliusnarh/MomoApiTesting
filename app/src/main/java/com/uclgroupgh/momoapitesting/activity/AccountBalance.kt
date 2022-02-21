@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil.setContentView
+import com.uclgroupgh.momoapitesting.BuildConfig
 import com.uclgroupgh.momoapitesting.R
 import com.uclgroupgh.momoapitesting.databinding.ActivityAccountBalanceBinding
 import com.uclgroupgh.momoapitesting.models.ApiToken

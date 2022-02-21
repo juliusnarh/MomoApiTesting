@@ -17,6 +17,7 @@ import com.afollestad.materialdialogs.input.input
 import com.google.gson.Gson
 import com.jakewharton.rxbinding2.widget.RxTextView
 import com.jakewharton.rxbinding2.widget.TextViewTextChangeEvent
+import com.uclgroupgh.momoapitesting.BuildConfig
 import com.uclgroupgh.momoapitesting.R
 import com.uclgroupgh.momoapitesting.databinding.ActivityMainBinding
 import com.uclgroupgh.momoapitesting.models.*
@@ -71,9 +72,9 @@ class MainActivity : AppCompatActivity() {
 
     private fun callGetToken() {
         val call = apiService.generateAPIToken2(
-            Constants.API_USER,
-            Constants.API_USER_KEY,
-            Constants.COLLECTION_SUBSCRIPTION_KEY
+            BuildConfig.COLLECTION_API_USER,
+            BuildConfig.COLLECTION_API_USER_KEY,
+            BuildConfig.COLLECTION_SUB_KEY
         )
 
         call.enqueue(object : Callback<ApiToken> {
@@ -132,7 +133,7 @@ class MainActivity : AppCompatActivity() {
         Log.e("REFERENCE2", Gson().toJson(requestToPay))
         Log.e("REFERENCE3", AndroidUtils.getPreferenceData(this, Constants.ACCESS_TOKEN, "")!!)
         val call = apiService.requestToPay(
-            subscriptionKey = Constants.COLLECTION_SUBSCRIPTION_KEY,
+            subscriptionKey = BuildConfig.COLLECTION_SUB_KEY,
             referenceID = paymentReference,
             targetEnvironment = Constants.TARGET_ENVIRONMENT,
             accessToken = AndroidUtils.getPreferenceData(this, Constants.ACCESS_TOKEN, "")!!,
