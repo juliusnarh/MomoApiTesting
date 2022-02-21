@@ -21,7 +21,7 @@ interface ApiService {
     @POST("token.php")
     fun generateAPIToken2(@Query("api_user") apiUser: String, @Query("api_user_key") apiUserKey: String, @Query("subscription_key") subscriptionKey: String): Call<ApiToken>
 
-    @POST("token.php")
+    @POST("tokens.php")
     fun generateAPIToken2(@Query("product") product: String): Call<ApiToken>
 
     @POST("gateway/checkout")
